@@ -1,6 +1,6 @@
 console.log('test app.js');
 
-var divWrapper = document.createElement('div');
+const divWrapper = document.createElement('div');
 divWrapper.className = 'wrapper';
 document.body.append(divWrapper);
 
