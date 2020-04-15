@@ -3,6 +3,8 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 module.exports = (env, options) => {
   const isProduction = options.mode === 'production';
@@ -45,14 +47,6 @@ module.exports = (env, options) => {
           ]
         },
         {
-          test: /\.(png|jpe?g|gif|mp3)$/i,
-          use: [
-            {
-              loader: 'file-loader',
-            },
-          ],
-        },
-        {
           test: /\.html$/i,
           loader: 'html-loader',
         },
@@ -69,6 +63,10 @@ module.exports = (env, options) => {
       new MiniCssExtractPlugin({
         filename: 'bundle.css'
       }),
+      new CopyPlugin([
+        { from: './src/assets/audio', to: 'audio' },
+        { from: './src/assets/img', to: 'img' },
+      ]),
     ]
   }
 
