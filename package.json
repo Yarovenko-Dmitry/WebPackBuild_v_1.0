@@ -8,10 +8,10 @@
     "build": "webpack --mode production",
     "watch": "webpack --mode development",
     "start": "webpack-dev-server --mode development --open",
-    "clear": "del-cli dist",
+    "clear": "del-cli dev_result",
     "test": "npx eslint src/app.js"
   },
-  "author": "Karina Logvina",
+  "author": "Dmitry Yarovenko",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.0",
